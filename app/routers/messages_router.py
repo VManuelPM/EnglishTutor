@@ -31,8 +31,9 @@ async def send_message(msg: Message, db: Session = Depends(get_db)):
     # Generar respuesta GPT de forma asíncrona
     try:
         gpt_reply = await gpt_service.generate_reply(msg.user_id, db, msg.text)
-    except Exception:
+    except Exception as e:
         gpt_reply = "Lo siento, no puedo responder a tu mensaje ahora."
+        print(f"Error al generar respuesta GPT: {e}")
 
     return MessageResponse(original=msg.text, corrected=corrected, message=gpt_reply)
 

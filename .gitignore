@@ -21,8 +21,11 @@ chatbot.db
 *.db-shm
 *.db-wal
 
-# Variables de entorno (Contiene API Keys de OpenAI, etc.)
-# ¡MUY IMPORTANTE! No subir este archivo por seguridad
+# Base de datos vectorial (ChromaDB)
+# Ignoramos la carpeta donde se guarda la memoria inteligente
+vector_db/
+
+# Variables de entorno (API Keys, configuraciones sensibles)
 .env
 
 # Configuración de IDE (PyCharm / IntelliJ / VS Code)
@@ -30,6 +33,11 @@ chatbot.db
 .vscode/
 *.swp
 *.swo
+
+# Archivos específicos de macOS (M1 Pro)
+.DS_Store
+.AppleDouble
+.LSOverride
 
 # Logs
 *.log
